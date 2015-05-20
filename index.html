@@ -9,10 +9,16 @@
     <style type="text/css">
     #slide-tasks ul {
       list-style-type: decimal;
+      font-size: 1.3em;
     }
     #slide-task2 img {
       width: 45%;
       margin-left: 20%;
+    }
+    .ex {
+      background-color: #E3E7F0;
+      color: black;
+      padding-left: 5px;
     }
     </style>
   </head>
@@ -35,7 +41,7 @@ Open a terminal, and
 
 ### python -m SimpleHTTPServer
 
-### Open browser at localhost:8000
+Open Chrome browser. Type in url -> localhost:8000
 
 
 ---
@@ -63,29 +69,42 @@ name: tasks
 
 ##Tasks
 
-- Code editor & Chrome's Developer Tools
+- Basic Tools - Code Editor & Chrome Developer Tools
 
 - Quick Review of Client & Server
 
-- Role of HTML & CSS
+- HTML
+
+- CSS
 
 - DOM in simple english
 
-- Design a good looking web page in minutes
-
-- Improve your productivity
+- Create a good looking web page in minutes
 
 - JavaScript - some parts
+
+- Tools to improve your productivity
 
 
 <!--NEXT SLIDE -->
 ---
+class: center, middle
 
+#1. Basic Tools - Code Editor & Chrome Developer Tools
+
+<!--NEXT SLIDE -->
+---
 name: task1
 
-##Task 1a - Code Editor 
+##Basic Tools - Code Editor 
 
-- Open folder /home/oski/BootcampMaterials/webtools-tutorial in Sublime Text
+- Exercise 1a
+
+.ex[Open Sublime Text
+
+File - Open Folder - /home/oski/BootcampMaterials/webtools-tutorial
+
+Click on any file in the exercises folder]
 
 - Other editors - PyCharm, Notepad++, Vim, IDLE, Gedit, TextMate
 
@@ -98,56 +117,80 @@ name: task1
 
 name: task1
 
-##Task 1b - Chrome Developer Tools
+##Basic Tools - Chrome Developer Tools
 
-- Open tab where you are running this slideshow
+- Exercise 1b
 
-- Press Ctrl+Shift+I (or F12) to open developer tools
+.ex[In Chrome go to tab where you are running this slideshow
 
-- Check out the different panels. More info on them [here](https://developer.chrome.com/devtools)
+Press Ctrl+Shift+I (or F12) to open developer tools
 
-- In Console panel type:
+Check out the different panels
+
+In Console panel type:]
 ```javascript
 console.log('Hello World')
 ```
 
+-  More info on Chrome Developer tools [here](https://developer.chrome.com/devtools)
+
+
+<!--NEXT SLIDE -->
+---
+class: center, middle
+
+#2. Quick Review of Client & Server
 
 <!--NEXT SLIDE -->
 ---
 
 name: task2
 
-##Task 2 - Quick Review of Client & Server
+##Quick Review of Client & Server
 
 ![](img/client-server.gif)
 
-Open Network Panel on Developer Tools, Reload the page
+- Exercise 2
 
-When a link is clicked, the browser creates an .em[HTTP Get Request] that is sent to the server.
+.ex[Open Network Panel on Chrome Developer Tools
 
-Server responds. Browser displays the page. Sees that it needs a few more things - e.g. images, fonts, other files.
+Reload the page. Look at all the activity there, and this is a simple page! ]
 
-Browser sends new a GET request for each item. Server sends response for each request with status code (200 - found, 304 - retrieving from browser cache, 404 - not found, 500 - server error )
+- HTTP, language of the web
+- Browser sends HTTP GET Request. Server sends response for each request with content and/or message.
+
+[.footnote[How Does the Web Work?]](http://www.theodinproject.com/web-development-101/how-does-the-web-work)
+
+???
+When a link is clicked, the browser creates an .em[HTTP Get Request] that is sent to the server. Server responds. Browser displays the page. Sees that it needs a few more things - e.g. images, fonts, other files. Browser sends new a GET request for each item. Server sends response for each request with status code (200 - found, 304 - retrieving from browser cache, 404 - not found, 500 - server error )
 
 
+<!--NEXT SLIDE -->
+---
+class: center, middle
 
+#3. HTML
 <!--NEXT SLIDE -->
 ---
 
 name: html
 
 
-##Task 3a - HTML
+##Hyper Text Markup Language (HTML)
 
-- Hyper Text Markup Language
-
-- Describes content (not presentation)
+- Role -> Describes content (not presentation)
 
 - Tags, elements, attributes
 
-- Open [_html.html](exercises/_html.html) in a new tab
+- Block tags & Inline tags
 
-- Exercise: Create an ordered list in the body
+- Nesting tags creates hierarchy
+
+- Classes & ID's
+
+- [HTML Reference](https://developer.mozilla.org/en-US/docs/Web/HTML). Open this link in a new tab.
+
+
 
 ???
 Code Executed on your computer - 3 different peices. HTML, CSS and JS. HTML answers the what, content. Bunch of abbreviations, just memorize. Never see what's in the head. Head is the metadata. Title. Not displayed on the page. English document encoded this way. Apply these styles.
@@ -158,65 +201,71 @@ Code Executed on your computer - 3 different peices. HTML, CSS and JS. HTML answ
 name: html
 
 
-##Task 3a - HTML (cont)
+##Let's write some HTML 
 
-- Block tags
+- Exercise 3
 
-- Inline tags
+.ex[Open [_html.html](exercises/_html.html) in a new tab
 
-- Classes & ID's
+Open file _html.html in Sublime Text
 
-- Exercise: Create an ordered list in the body
+Let's go over what we see
+
+Create an ordered list in the body
+
+Add class to titles of blog post
+
+Add id to span element
+
+]
 
 ???
 Code Executed on your computer - 3 different peices. HTML, CSS and JS. HTML answers the what, content. Bunch of abbreviations, just memorize. Never see what's in the head. Head is the metadata. Title. Not displayed on the page. English document encoded this way. Apply these styles.
 
+<!--NEXT SLIDE -->
+---
+class: center, middle
+
+#4. CSS
+
 
 <!--NEXT SLIDE -->
 ---
-name: css
 
+##Cascading Style Sheet (CSS)
 
-##Task 3b - CSS
+- Role -> CSS is the presentation of the content
 
-- HTML is content, CSS is the style, the presentation of the content. 
-
-- Collection of rules dictates how HTML looks.
+- Selectors, properties, and values
 
 - Cascading -> style properties cascade down through all child elements
 
-- Open [_css.html](exercises/_css.html) in a new tab
+- Box model -> how elements are positioned
 
-???
-Slide notes
-
-
-
+- [CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS). Open this link in a new tab.
 
 
 <!--NEXT SLIDE -->
 ---
 name: css-selectors
 
-##Task 2b - CSS (cont)
+##Ways to add CSS to a HTML document
 
-- Ways to add css to your document
-
-In the head
+In between the head tags:
 ```xml
 <style>
-  body {
+  h1 {
     font-family: "Helvetica", "sans-serif";
     font-weight: bold;
     background-color: #000;
   }
 </style>
 ```
-External file
+As an external file:
 ```xml
 <link rel="stylesheet" href="myStyle.css"/>
 ```
-Inline
+Inline:
 ```xml
 <p style="font-size:16px;"/>This is a paragraph</p>
 ```
@@ -226,23 +275,48 @@ Slide notes
 
 <!--NEXT SLIDE -->
 ---
-name: css-selectors
 
-##Task 2b - CSS Resources
+##Let's write some CSS
 
+- Exercise 4
+
+.ex[Open [_css.html](exercises/_css.html) in a new tab
+
+Open file _css.html in Sublime Text
+
+Let's go over what we see
+
+Add style in head for the ol element, see ul element
+
+Add style in head for id "tagline"
+
+Add style in head for class "post-title"
+
+Add inline style to div with image
+
+]
+
+???
 CSS, like HTML, has a lot of stuff to it. It’s impossible to keep it all in your head. Don’t expect to memorize all of it. Use sites like the MDN, CSS-Tricks, and Stack Overflow when you need help.
 
+<!--NEXT SLIDE -->
+---
+class: center, middle
+
+#5. DOM
 
 <!--NEXT SLIDE -->
 ---
 name: dom
 
 
-##Document Object Model
+##Document Object Model (DOM)
 
-- A graph representation of the structure of HTML document
+- Structured representation of the document (a tree)
 
-- Provides API for accessing and interacting with the document (web page)
+- Programming interface for HTML, XML and SVG documents
+
+- Connects web pages to JavaScript
 
 - [DOM in simple English, please!](https://css-tricks.com/dom/)
 
@@ -250,7 +324,62 @@ name: dom
 ???
 Slide notes
 
+---
 
+
+##Let's manipulate the DOM
+
+- Exercise 5
+
+.ex[Open [_css.html](exercises/_css.html) in a new tab
+
+Open Chrome Developer Tools
+
+In Console panel type or copy-paste:
+
+]
+
+```javascript
+var tag = document.getElementById("tagline");
+
+```
+
+.ex[ Change the text inside this element:
+]
+```javascript
+tag.innerHTML = "My new tagline";
+tag.innerHTML = '<span id="tagline" style="color:blue;">My new tagline</span>';
+
+```
+
+<!--NEXT SLIDE -->
+---
+class: center, middle
+
+#6. Create a good looking web page in minutes
+
+<!--NEXT SLIDE -->
+---
+
+
+##CSS Frameworks
+
+- Software frameworks that allow easier, standards-compliant web design
+
+- [Most popular](http://en.wikipedia.org/wiki/CSS_frameworks) CSS Frameworks  -> Bootstrap, Foundation
+
+- Exercise 6
+
+.ex[Open [_bootstrap.html](exercises/_bootstrap.html) in a new tab
+
+Let's go over what we see
+]
+
+<!--NEXT SLIDE -->
+---
+class: center, middle
+
+#7. JavaScript
 
 <!--NEXT SLIDE -->
 ---
@@ -258,8 +387,6 @@ name: javascript
 
 
 ##JavaScript
-
-- Language of the web
 
 - "Easy to learn, hard to master"
 

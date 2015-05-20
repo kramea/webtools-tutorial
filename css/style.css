@@ -34,7 +34,7 @@ h1, h2, h3, h4 {
 .footnote {
   position: absolute;
   bottom: 5em;
-  color: rgb(199, 205, 223);
+  color: #A8A358;
   right: 10px;
 }
 .footnote :hover {
