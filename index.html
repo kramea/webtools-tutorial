@@ -26,11 +26,14 @@
     #slide-function .right-column {
       width: 50%;
     }
-    #slide-json code {
+    #slide-squeeze code {
       font-size: 0.7em;
     }
     #slide-geojson code {
       font-size: 0.5em;
+    }
+    #slide-resources ul {
+      font-size: 1.3em;
     }
     </style>
   </head>
@@ -41,6 +44,17 @@ layout: true
 class: left
 background-image: url(../css/logos.png)
 ---
+
+#Frontend Building Blocks for Web Mapping
+<br>
+#### Shruti Mukhtyar @mapchitra
+#### Spatial Data Science Bootcamp
+<br>
+#### May 22, 2015
+
+
+---
+name: agenda
 ## Before we start
 
 Open a terminal, and 
@@ -55,24 +69,7 @@ Open a terminal, and
 
 Open Chrome browser. Type in url -> localhost:8000
 
-
----
-
-name: agenda
-
-#Frontend Building Blocks for Web Mapping
-<br>
-#### Shruti Mukhtyar
-#### Spatial Data Science Bootcamp
-<br>
-#### May 22, 2015
-
 ???
-These are some of the fundamentals to help introduce you to the syntaxes (syntacti?) of HTML & CSS. The goal is to just barely get your feet wet and, hopefully, get you hungry to do more!
-These are not a comprehensive guide to all things HTML & CSS. You will have questions. That's ok. A big part of all kinds of coding is taking what you do know and building upon it. That often means research and collaborating with others. Thankfully, there are a plethora of resources on the internet 
-
-
-
 
 <!--NEXT SLIDE -->
 ---
@@ -169,7 +166,7 @@ name: task2
 Reload the page. Look at all the activity there, and this is a simple page! ]
 
 - HTTP, language of the web
-- Browser sends HTTP GET Request. Server sends response for each request with content and/or message.
+- Browser sends HTTP GET Request. Server sends response for each request with content and/or status message.
 
 [.footnote[How Does the Web Work?]](http://www.theodinproject.com/web-development-101/how-does-the-web-work)
 
@@ -190,7 +187,7 @@ name: html
 
 ##Hyper Text Markup Language (HTML)
 
-- Role -> Describes content (not presentation)
+- Role &raquo; Describes content (not presentation)
 
 - Tags, elements, attributes
 
@@ -200,7 +197,7 @@ name: html
 
 - Classes & ID's
 
-- [HTML Reference](https://developer.mozilla.org/en-US/docs/Web/HTML). .ex[Open this link in a new tab.]
+- [HTML Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element). .ex[Open this link in a new tab.]
 
 
 
@@ -223,11 +220,11 @@ Open file _html.html in Sublime Text
 
 We'll look at it together
 
-Create an ordered list in the body
+Create an .em[ordered list] in the body
 
-Add class to titles of blog post
+Add a .em[class] attribute to titles of blog post
 
-Add id to span element
+Add a .em[id] attribute to span element
 
 ]
 
@@ -246,13 +243,13 @@ class: center, middle
 
 ##Cascading Style Sheet (CSS)
 
-- Role -> CSS is the presentation of the content
+- Role &raquo; CSS is the presentation of the content
 
 - Selectors, properties, and values
 
-- Cascading -> style properties cascade down through all child elements
+- Cascading &raquo; style properties cascade down through all child elements
 
-- Box model -> how elements are positioned
+- Box model &raquo; how elements are positioned
 
 - [CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS). .ex[Open this link in a new tab.]
 
@@ -277,7 +274,7 @@ As an external file:
 ```xml
 <link rel="stylesheet" href="myStyle.css"/>
 ```
-Inline:
+Inline style:
 ```xml
 <p style="font-size:16px;"/>This is a paragraph</p>
 ```
@@ -298,13 +295,17 @@ Open file _css.html in Sublime Text
 
 We'll look at it together
 
-Add style in head for the ol element, see ul element
+Add following styles in head for:
 
-Add style in head for id "tagline"
+.em[Ordered list], see ul style there for reference
 
-Add style in head for class "post-title"
+.em[id "tagline"]
 
-Add inline style to div with image
+.em[class "post-title"]
+
+Add inline style to:
+
+.em[div with image]
 
 ]
 
@@ -324,7 +325,7 @@ name: dom
 
 ##Document Object Model (DOM)
 
-- Structured representation of the document (a tree)
+- Structured representation of the document (a tree) created by the browser (not you!)
 
 - Programming interface for HTML, XML and SVG documents
 
@@ -360,7 +361,7 @@ var tag = document.getElementById("tagline");
 ]
 ```javascript
 tag.innerHTML = "My new tagline";
-tag.innerHTML = '<span id="tagline" style="color:blue;">My new tagline</span>';
+tag.innerHTML = '<span id="tagline" style="color:blue;">My new tagline in blue</span>';
 
 ```
 
@@ -391,7 +392,7 @@ We'll look at it together
 ---
 class: center, middle
 
-#7. JavaScript
+#7. JavaScript - Some Parts
 
 <!--NEXT SLIDE -->
 ---
@@ -400,9 +401,9 @@ class: center, middle
 
 - "Easy to learn, hard to master"
 
-- Interpreted by your browser
+- Role &raquo; Creating interaction
 
-- Creating interaction
+- Interpreted by your browser
 
 - [JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
@@ -419,35 +420,41 @@ class: center, middle
 
 - Variables can store values, expressions, objects, functions
 
+.ex[No exercise files. We will type JavaScript directly into Console panel in Chrome's Developer Tools. You can copy paste from html slideshow. I encourage you to type if code blocks are small. Use Shift + Enter keys for multiline code blocks, e.g. functions.
+]
+
 ---
 
 ##Variables
 
 - Exercise 7a
 
-.ex[Open [_javascript_7a.html](exercises/_javascript_7a.html) in a new tab and open file in Sublime Text
-
-Open Chrome Developer Tools
-
-In Console panel or Sublime Text type:
-
+.ex[ Define variables.  
 ]
 
 ```javascript
-console.log(count);
-console.log(text);
+var count = 5;
+var text = "bananas";
+console.log(count); (or count;)
+typeof(text);
 
 ```
 
-.ex[ Look at the comments in file and try some of the math/comparision/logical operators
-
-In Console panel or Sublime Text type:
+.ex[ Try out .em[+] operator, .em[*] operator 
 ]
 ```javascript
-countStr  == count
-countStr  == count
-typeof(countStr);
+count + text;
+count * text;
 
+```
+
+.ex[ Try out .em[==] operator, .em[===] operator 
+]
+```javascript
+var countStr = "5";
+typeof(countStr);
+countStr  == count //??
+countStr  === count //??
 ```
 
 ---
@@ -466,12 +473,13 @@ typeof(countStr);
 - A property whose value is a function is known as a method
 
 ---
+name: squeeze
 
 ##Objects
 
 - Exercise 7b
 
-.ex[We will work directly in the Console panel for this exercise
+.ex[Define an empty object. Many ways to define, we will use Object Literal Notation.
 
 ]
 
@@ -493,9 +501,12 @@ mySample.name = 'MW-1';
 var well = mySample.name;
 ```
 
-.ex[ Assign the name property a different value. Console log the variable well.
+.ex[ Assign the name property a different value.
 ]
-
+```javascript
+mySample.name = 'MW-5';
+well; //??
+```
 ---
 
 ##Objects
@@ -513,18 +524,18 @@ mySample["height"] = 50;
 
 ```javascript
 var key = "height";
-mySample[key];
-mySample.key;
+mySample[key]; //??
+mySample.key; //??
 ```
 
-.ex[ With bracket notation you can use functions
+.ex[ With bracket notation you can use functions, evaluate expressions.
 ]
 
 ```javascript
 var myFunc = function (){
   return "height";
 }
-mySample[myFunc()];
+mySample[myFunc()]; //??
 ```
 
 ---
@@ -653,11 +664,35 @@ for (var i=0; i < arr.length; i++) {
 
 <!--NEXT SLIDE -->
 ---
-name: function
+name: squeeze
 
 ##Functions (){}
 
 - Functions are objects too! Assign them to variables. Pass them around as data.
+
+- Can be written in many ways.
+
+- Anonymous function
+
+```javascript
+function(x, y){
+  return x + y;
+}
+```
+
+- Named function
+
+```javascript
+function multiply (x, y){
+  return x + y;
+}
+```
+
+<!--NEXT SLIDE -->
+---
+name: function
+
+##Functions
 
 - Anatomy of a .em[function expression]
 
@@ -668,18 +703,18 @@ var multiply = function(x, y){
 multiply(2,3);
 ```
 .left-column[
-multiply - Function name
+multiply &raquo; Function name
 
-x, y - Parameters
+x, y &raquo; Parameters
 
-return x + y; - Function body
+return x + y; &raquo; Function body
 ]
 .right-column[
-{} - Function definition/declaration
+{} &raquo; Function definition/declaration
 
-2,3 - Arguments
+2,3 &raquo; Arguments
 
-multiply(2,3) - Invocation, calling the function
+multiply(2,3) &raquo; Invocation, calling the function
 ]
 
 <!--NEXT SLIDE -->
@@ -725,15 +760,15 @@ result1 = outside(3)(5);
 
 ##Callbacks
 
-- A function passed to another function (named anotherFunction) as a parameter
+- A function passed to another function (let's name it anotherFunction) as a parameter
 
-- Only passing the function definition, it is not getting executed in the parameter
+- You are only passing the function definition, it is not getting executed in the parameter
 
 - Function is executed inside anotherFunction
 
 - Callbacks are also closures
 
-- You will use this almost right away with any js programming for the web.
+- You will use this almost right away the first time you make a web map.
 
 <!--NEXT SLIDE -->
 ---
@@ -765,7 +800,61 @@ fullName("Jackie", "Chan", greeting);
 
 <!--NEXT SLIDE -->
 ---
-name: json
+name: squeeze
+
+##Module Pattern
+
+
+```javascript
+var MYMODULE = (function () {
+
+    // variables and functions private unless attached to API below
+    // 'this' refers to global window
+
+    // private array
+    var array = [];
+
+    // add a number into array
+    function add(a) {
+        log("add "+a);
+        array.push(a);
+    }
+
+    // return copy of the array
+    function get_array() {
+        log("copy_array");
+        return array.slice();
+    }
+
+    // a private debug function
+    function log(msg) {
+        console.debug(msg);
+    }
+
+    // define the public API
+    var API = {};
+    API.add = add;
+    API.get_array = get_array;
+
+    return API;
+}());
+```
+
+---
+
+##Module Pattern
+
+- Way to group functions and data in a private namespace
+
+- By using Javascript's most powerful feature, closures, it is possible to create an anonymous function, invoke it immediately and create a closure of functions and data
+
+- ["Learning JavaScript Design Patterns"](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript) - Andy Osmani (free ebook)
+
+[.footnote[Source: Blog post]](http://tomicloud.com/2013/01/js-jquery-boilerplates)
+
+<!--NEXT SLIDE -->
+---
+name: squeeze
 
 
 ##JSON
@@ -851,29 +940,61 @@ class: center, middle
 
 ---
 
-##Tools to improve your productivity 
 
-- [Package Managers](http://tech.pro/tutorial/1190/package-managers-an-introductory-guide-for-the-uninitiated-front-end-developer) - Bower
+##Tools to improve your productivity - [Bower](http://bower.io/)
 
-- Task Runners - Grunt & Gulp
+If you want to start somewhere, use Bower first. What is Bower? A [Package Manager](http://tech.pro/tutorial/1190/package-managers-an-introductory-guide-for-the-uninitiated-front-end-developer) for front-end, like pip for python packages
 
-- Testing - Jasmine, Mocha, Karma
+Bower requires Node and npm and Git. Easy to install on Windows, Ubuntu, Mac. Typical Ubuntu installation looks like this:
 
+```xml
+sudo apt-get install nodejs
+sudo apt-get install npm
+sudo npm -g install bower
+```
+To use it:
+```xml
+cd your-project-directory
+bower init
+bower install leaflet --save //installs leaflet
+bower install git://github.com/user/package.git
+bower install http://example.com/script.js
+```
 
-
+Install, remove, search packages. Package names are saved to bower.json.
 
 <!--NEXT SLIDE -->
 ---
-name: references
+
+##Tools to improve your productivity
+
+Next checkout [Grunt](http://gruntjs.com/) or [Gulp](http://gulpjs.com/). What is Grunt? A [JavaScript Task Runner](http://24ways.org/2013/grunt-is-not-weird-and-hard/)
+
+What does it do? Automate your workflow. Clean up code, compress CSS, contcatenate and minify JS files, Optimize images, etc.
+
+Typical installation. First create package.json with npm init in your project folder.
+
+```xml
+cd your-project-directory
+npm init
+npm install grunt-cli --save
+```
+--save, --save-dev flags write dependecies to package.json file.
+
+Next checkout Testing Frameworks - Jasmine, Moncha, Karma, etc.
+---
+name: resources
 
 
 #Resources
 
 - [Getting Started Web Development Guide](http://jlord.us/blog/getting-started.html)
 
-- Google search: favor results from stack exchange, Mozilla
+- Google search: favor results from stack exchange, Mozilla, CSS-Tricks
 
 - [CodeAcademy](http://www.codecademy.com/) - JavaScript, HTML/CSS (Beginners)
+
+- Courses for all levels on CodeAcademy, Udacity, Coursera
 
 - JavaScript: The Good Parts by Douglas Crockford (Intermediate)
 
