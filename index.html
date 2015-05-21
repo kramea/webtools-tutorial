@@ -20,6 +20,18 @@
       color: black;
       padding-left: 5px;
     }
+    #slide-function .left-column {
+      width: 50%;
+    }
+    #slide-function .right-column {
+      width: 50%;
+    }
+    #slide-json code {
+      font-size: 0.7em;
+    }
+    #slide-geojson code {
+      font-size: 0.5em;
+    }
     </style>
   </head>
   <body>
@@ -188,7 +200,7 @@ name: html
 
 - Classes & ID's
 
-- [HTML Reference](https://developer.mozilla.org/en-US/docs/Web/HTML). Open this link in a new tab.
+- [HTML Reference](https://developer.mozilla.org/en-US/docs/Web/HTML). .ex[Open this link in a new tab.]
 
 
 
@@ -209,7 +221,7 @@ name: html
 
 Open file _html.html in Sublime Text
 
-Let's go over what we see
+We'll look at it together
 
 Create an ordered list in the body
 
@@ -242,7 +254,7 @@ class: center, middle
 
 - Box model -> how elements are positioned
 
-- [CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS). Open this link in a new tab.
+- [CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS). .ex[Open this link in a new tab.]
 
 
 <!--NEXT SLIDE -->
@@ -284,7 +296,7 @@ Slide notes
 
 Open file _css.html in Sublime Text
 
-Let's go over what we see
+We'll look at it together
 
 Add style in head for the ol element, see ul element
 
@@ -372,7 +384,7 @@ class: center, middle
 
 .ex[Open [_bootstrap.html](exercises/_bootstrap.html) in a new tab
 
-Let's go over what we see
+We'll look at it together
 ]
 
 <!--NEXT SLIDE -->
@@ -383,76 +395,410 @@ class: center, middle
 
 <!--NEXT SLIDE -->
 ---
-name: javascript
-
 
 ##JavaScript
 
 - "Easy to learn, hard to master"
 
-- Let's explore some js. Open [_javascript.html](exercises/_javascript.html)
+- Interpreted by your browser
 
-- Check output in Chrome console
+- Creating interaction
 
-???
-Slide notes
+- [JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-
-
-
-
-
-<!--NEXT SLIDE -->
 ---
-name: json
 
 
-##JSON
+##Variables
 
-- [JavaScript Object Notation](http://en.wikipedia.org/wiki/JSON)
+- Container for storing values
 
-- Lightweight data-interchange format, language independent
+- Loosely typed
 
-- Attribute value pairs
+- Always use var when declaring for first time
 
+- Variables can store values, expressions, objects, functions
 
-???
-JJavaScript Object Notation, is an open standard format that uses human-readable text to transmit data objects consisting of attribute–value pairs. It is used primarily to transmit data between a server and web application, as an alternative to XML.
-
-Although originally derived from the JavaScript scripting language, JSON is a language-independent data format. Code for parsing and generating JSON data is readily available in many programming languages.
-
-<!--NEXT SLIDE -->
 ---
-name: json
 
+##Variables
 
-##JSON
+- Exercise 7a
+
+.ex[Open [_javascript_7a.html](exercises/_javascript_7a.html) in a new tab and open file in Sublime Text
+
+Open Chrome Developer Tools
+
+In Console panel or Sublime Text type:
+
+]
 
 ```javascript
-  {
-    "firstName": "John",
-    "lastName": "Smith",
-    "isAlive": true,
-    "age": 25,
-    "address": {
-      "streetAddress": "21 2nd Street",
-      "city": "New York",
-      "state": "NY",
-      "postalCode": "10021-3100"
-    },
-    "phoneNumbers": [
-      {
-        "type": "home",
-        "number": "212 555-1234"
-      },
-      {
-        "type": "office",
-        "number": "646 555-4567"
-      }
-    ],
-    "children": [],
-    "spouse": null
+console.log(count);
+console.log(text);
+
+```
+
+.ex[ Look at the comments in file and try some of the math/comparision/logical operators
+
+In Console panel or Sublime Text type:
+]
+```javascript
+countStr  == count
+countStr  == count
+typeof(countStr);
+
+```
+
+---
+
+
+##Objects {}
+
+- Container for your data
+
+- Collection of properties
+
+- Property is an association between a name and a value (.em[key : value] pairs)
+
+- A property's value can be any type - numbers, strings, functions, arrays, even other objects
+
+- A property whose value is a function is known as a method
+
+---
+
+##Objects
+
+- Exercise 7b
+
+.ex[We will work directly in the Console panel for this exercise
+
+]
+
+```javascript
+var mySample = {};
+typeof(mySample);
+```
+.ex[ Add a new property using Dot Notation
+]
+
+```javascript
+mySample.name = 'MW-1';
+```
+
+.ex[ Access the property using Dot Notation and store it in a variable
+]
+
+```javascript
+var well = mySample.name;
+```
+
+.ex[ Assign the name property a different value. Console log the variable well.
+]
+
+---
+
+##Objects
+
+- Exercise 7b (more)
+
+.ex[ Another way to add a new property - Bracket Notation
+]
+
+```javascript
+mySample["height"] = 50;
+```
+.ex[ Property names are stored as strings inside the object. Let's look what the last 2 lines in the next code snippet returns.
+]
+
+```javascript
+var key = "height";
+mySample[key];
+mySample.key;
+```
+
+.ex[ With bracket notation you can use functions
+]
+
+```javascript
+var myFunc = function (){
+  return "height";
+}
+mySample[myFunc()];
+```
+
+---
+
+##Objects
+
+- Exercise 7b (still more)
+
+.ex[ Add a new property which is an object
+]
+
+```javascript
+mySample["location"] = {
+  "lat": 37.87,
+  "lon": 122.27
+}
+```
+.ex[ Add a new property which is a function
+]
+
+```javascript
+mySample.getLatitude = function(){
+  return mySample.location.lat;
+}
+```
+
+---
+
+##Objects
+
+- Exercise 7b (lots more)
+
+.ex[ Object Literal Notation
+]
+
+```javascript
+var mySample = {
+  "name" : "MW-1",
+  "height" : 50,
+  "location" : {
+     "lat": 37.87,
+     "lon": 122.27
+  },
+  "getLatitude" : function (){
+      return mySample.location.lat;
   }
+}
+```
+
+---
+
+##Objects
+
+- Exercise 7b (even more)
+
+.ex[ Iteration. Get a list of property names.
+]
+
+```javascript
+for (var key in mySample) {
+  console.log(key);
+}
+```
+.ex[ Get a list of property values.
+]
+
+```javascript
+for (var key in mySample) {
+  console.log(mySample[key]);
+}
+```
+<!--NEXT SLIDE -->
+---
+
+##Arrays []
+
+- Exercise 7c
+
+.ex[We are going to keep working in console. Define an array
+]
+
+```javascript
+var arr = [];
+```
+.ex[ Assign values
+]
+
+```javascript
+arr[0] = "sample";
+arr[1] = false;
+arr.push({ "name" : "MW-1"});
+```
+
+.ex[ Access values
+]
+
+```javascript
+arr[0];
+var i = 2;
+arr[i];
+
+```
+---
+
+##Arrays
+
+- Exercise 7c (more)
+
+.ex[Arrays are objects!]
+
+```javascript
+typeof(arr);
+arr["size"] = 9;
+for (var key in arr) {
+  console.log(key);
+}
+arr.length;
+```
+.ex[ Use this syntax for looping over arrays
+]
+```javascript
+for (var i=0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+```
+
+<!--NEXT SLIDE -->
+---
+name: function
+
+##Functions (){}
+
+- Functions are objects too! Assign them to variables. Pass them around as data.
+
+- Anatomy of a .em[function expression]
+
+```javascript
+var multiply = function(x, y){
+  return x + y;
+}
+multiply(2,3);
+```
+.left-column[
+multiply - Function name
+
+x, y - Parameters
+
+return x + y; - Function body
+]
+.right-column[
+{} - Function definition/declaration
+
+2,3 - Arguments
+
+multiply(2,3) - Invocation, calling the function
+]
+
+<!--NEXT SLIDE -->
+---
+
+##Closure
+
+- You can nest a function within a function
+
+- The inner function can be accessed only from statements in the outer function
+
+- The inner function forms a closure
+
+- The inner function can use the arguments and variables of the outer function, while the outer function cannot use the arguments and variables of the inner function
+
+<!--NEXT SLIDE -->
+---
+
+##Closure
+
+- Exercise 7d
+
+.ex[Copy to console]
+```javascript
+function outside(x) {
+  function inside(y) {
+    return x + y;
+  }
+  return inside;
+}
+```
+.ex[Type these statements. Use typeof and console.log to examine fn_inside]
+
+```javascript
+fn_inside = outside(3);
+result = fn_inside(5); 
+
+result1 = outside(3)(5);
+```
+<!--NEXT SLIDE -->
+
+---
+
+##Callbacks
+
+- A function passed to another function (named anotherFunction) as a parameter
+
+- Only passing the function definition, it is not getting executed in the parameter
+
+- Function is executed inside anotherFunction
+
+- Callbacks are also closures
+
+- You will use this almost right away with any js programming for the web.
+
+<!--NEXT SLIDE -->
+---
+
+##Callbacks
+
+- Exercise 7e
+
+.ex[Copy to console. Define function fullName. Takes 3 arguments - last one is callback]
+```javascript
+function fullName(firstName, lastName, callback){
+  console.log("My name is " + firstName + " " + lastName);
+  callback(lastName);
+}
+```
+.ex[Define function greeting. This will be our callback function.]
+
+```javascript
+var greeting = function(ln){
+  console.log('Welcome Mr. ' + ln);
+};
+```
+
+.ex[Call fullName, pass it greeting without parentheses. greeting will be executed later]
+
+```javascript
+fullName("Jackie", "Chan", greeting);
+```
+
+<!--NEXT SLIDE -->
+---
+name: json
+
+
+##JSON
+
+- Exercise 7f
+
+.ex[Copy to console. Let's try to get at the data]
+
+```javascript
+var obj = {
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 25,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": ['Jack','Jill','Bo'],
+  "spouse": null
+}
 ```
 
 
@@ -461,42 +807,22 @@ name: json
 
 
 
-
 <!--NEXT SLIDE -->
 ---
 name: geojson
 
-
 ##GeoJSON
 
-- [Encodes](http://en.wikipedia.org/wiki/GeoJSON) collections of simple geographical features along with their non-spatial attributes using JSON
+- Exercise 7g
 
-- Open standard, maintained by working group of developers
-
-- [TopoJSON](http://en.wikipedia.org/wiki/GeoJSON#TopoJSON)
-
-- QGIS, geojson.io, [validate your geojson](http://geojsonlint.com/), [mapshaper](http://mapshaper.org/)
-
-
-???
-GeoJSON[1] is an open standard format for encoding collections of simple geographical features along with their non-spatial attributes using JavaScript Object Notation. The features include points (therefore addresses and locations), line strings (therefore streets, highways and boundaries), polygons (countries, provinces, tracts of land), and multi-part collections of these types. GeoJSON features need not represent entities of the physical world only; mobile routing and navigation apps, for example, might describe their service coverage using GeoJSON.[2]
-
-The GeoJSON format differs from other GIS standards in that it was written and is maintained not by a formal standards organization, but by an Internet working group of developers.[3]
-
-A notable offspring of GeoJSON is TopoJSON, an extension of GeoJSON that encodes geospatial topology and that typically provides smaller file sizes.
-
-<!--NEXT SLIDE -->
----
-name: json
-
-
-##GeoJSON
+.ex[Copy to console. Let's try to get at the data]
 
 ```javascript
+var obj = 
 { "type": "FeatureCollection",
     "features": [
       { "type": "Feature",
-        "geometry": {"type": "Point", "coordinates": [102.0, 0.5]},
+        "geometry": {"type": "Point", "coordinates": [102.0, 0.5] },
         "properties": {"prop0": "value0"}
        },
       { "type": "Feature",
@@ -506,40 +832,32 @@ name: json
              [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
                [100.0, 1.0], [100.0, 0.0] ]
              ]
-         },
+          },
          "properties": {
            "prop0": "value0",
            "prop1": {"this": "that"}
-           }
-         }
-       ]
-     }
+          }
+      }
+    ]
+}
 ```
+- [geojson.io](http://geojson.io/), [Validate your geojson](http://geojsonlint.com/), [Mapshaper](http://mapshaper.org/)
 
-
-???
-
-
-
-
-
-
-
-<!--NEXT SLIDE -->
 ---
-name: api
 
+class: center, middle
 
-#API
+#8. Tools to improve your productivity
 
-- Set of programming instructions and standards for accessing a Web-based software application
+---
 
-- Software-to-software interface, not a user interface
+##Tools to improve your productivity 
 
-- Examples of API's to get data from: Twitter API, Ecoengine API, SF Open Data, ...
+- [Package Managers](http://tech.pro/tutorial/1190/package-managers-an-introductory-guide-for-the-uninitiated-front-end-developer) - Bower
 
-???
-Slide notes
+- Task Runners - Grunt & Gulp
+
+- Testing - Jasmine, Mocha, Karma
 
 
 
@@ -553,11 +871,13 @@ name: references
 
 - [Getting Started Web Development Guide](http://jlord.us/blog/getting-started.html)
 
-- [CSS-Tricks](https://css-tricks.com/)
+- Google search: favor results from stack exchange, Mozilla
 
-- [CodeAcademy](http://www.codecademy.com/) - JavaScript, HTML/CSS
+- [CodeAcademy](http://www.codecademy.com/) - JavaScript, HTML/CSS (Beginners)
 
-- [Frontend Masters](https://frontendmasters.com/) - not free
+- JavaScript: The Good Parts by Douglas Crockford (Intermediate)
+
+- [Frontend Masters](https://frontendmasters.com/) (All levels but not free)
 
 
 
